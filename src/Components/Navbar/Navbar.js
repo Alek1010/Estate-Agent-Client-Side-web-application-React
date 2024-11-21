@@ -1,6 +1,7 @@
 // Importing React to build the Navbar component
 import React from "react";
 import './Navbar.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Importing necessary components from react-bootstrap
 // - Container: Used to align and center content within a responsive container

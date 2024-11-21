@@ -1,3 +1,50 @@
 footer {
     bottom: 0;
   }
+  .footer {
+    background-color: #f8f9fa; /* Light grey background */
+    color: #343a40; /* Dark grey text */
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Footer text */
+.footer-text {
+    margin: 0;
+    font-weight: 600;
+    color: #6c757d; /* Subtle grey text for copyright */
+    text-align: center;
+}
+
+/* Social icons */
+.social-icons {
+    display: flex;
+    justify-content: center; /* Center icons horizontally */
+    align-items: center; /* Center icons vertically */
+    gap: 1rem; /* Add spacing between icons */
+}
+
+.social-icon {
+    color: #343a40; /* Dark grey for icons */
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff; /* Change to blue on hover */
+    text-decoration: none;
+}
+
+/* Footer additional information */
+.footer-info {
+    font-size: 14px;
+    margin-top: 1rem;
+    color: #495057; /* Slightly darker grey for additional text */
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+    .footer-info {
+        font-size: 12px; /* Reduce text size for smaller screens */
+    }
+}
