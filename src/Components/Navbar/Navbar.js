@@ -30,7 +30,7 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
                 {/* Navbar.Collapse wraps the collapsible menu links */}
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse  id="basic-navbar-nav">
                     {/* Nav contains individual navigation links */}
                     <Nav className="ms-auto">
                         {/* Home link: Applies 'active' class when the current page is '/' */}
