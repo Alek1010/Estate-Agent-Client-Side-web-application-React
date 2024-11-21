@@ -23,7 +23,7 @@ const NavBar = () => {
             <Container>
                 {/* Navbar.Brand defines the brand/logo area */}
                 <Navbar.Brand href="#home">
-                    <span className="logo-text">SHEVIN HOMES</span> {/* Custom text for the brand */}
+                    <span className="logo-text">Moving Right</span> {/* Custom text for the brand */}
                 </Navbar.Brand>
 
                 {/* Navbar.Toggle adds a button for collapsing/expanding the menu on smaller screens */}
