@@ -1,0 +1,105 @@
+/* General Styling for Aboutus Section */
+.section-content {
+  text-align: justify;
+  color: #24c693;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1.5;
+  padding: 20px;
+}
+
+/* Styling for the Vision and Mission Section */
+.section-title {
+  text-align: center; /* Center-align the entire section title */
+  margin: 0 auto; /* Center the section within its container */
+  padding: 20px;
+}
+
+.section-title h2 {
+  font-size: 2em;
+  font-family: 'Raleway, sans-serif';
+  font-weight: bold;
+  color: #20247b;
+}
+
+.section-title p {
+  text-align: center; /* Center-align the paragraph text */
+  color: #fc5356;
+  font-weight: bold;
+  font-size: 1.1em;
+  line-height: 1.5;
+  font-family: 'Raleway, sans-serif';
+  margin: 20px auto; /* Add spacing above and below */
+  max-width: 800px; /* Limit width for better readability */
+}
+
+
+/* Styling for Cards */
+.card {
+  background-color: #d1c4e9;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  background-color: #f8f9fa; /* Light gray hover effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Subtle box shadow */
+}
+
+.team-card-title {
+  font-family: 'Georgia, serif';
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #20247b;
+}
+
+.team-card-text {
+  font-family: 'Georgia, serif';
+  font-size: 1rem;
+  color: #20247b;
+  line-height: 1.6;
+}
+
+/* Styling for Mission Section */
+.mission-heading {
+  font-family: 'Georgia, serif';
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #20247b;
+  margin-bottom: 1rem;
+}
+
+.mission-text {
+  font-family: 'Georgia, serif';
+  font-size: 1.3rem;
+  color: #20247b;
+  line-height: 1.6;
+}
+
+/* Styling for Badges */
+.badge {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 20px; /* Rounded badge edges */
+}
+
+.bg-info-badge {
+  background-color: #17a2b8; /* Light blue */
+  color: white;
+}
+
+.bg-primary-badge {
+  background-color: #007bff; /* Dark blue */
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .section-title h2 {
+    font-size: 1.8em; /* Smaller title on small screens */
+  }
+
+  .mission-text {
+    font-size: 1.1rem; /* Adjust text size for smaller devices */
+  }
+}
