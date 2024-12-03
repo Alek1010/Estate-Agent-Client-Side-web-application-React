@@ -157,7 +157,7 @@ const Properties = () => {
                   }}
                 >
                   {" "}
-                  Exlore and find your dream home on Moving right discover our wide range of beautful homes all From the comfort of your own home.
+                  Explore and find your dream home on Moving right discover our wide range of beautful homes all From the comfort of your own home.
                 </p>
               </div>
               <img

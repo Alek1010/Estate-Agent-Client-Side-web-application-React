@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
@@ -12,18 +12,22 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
 const Property = () => {
-  const [properties, setProperties] = useState([]);
   const [property, setProperty] = useState(null); // Initialize as null
 
   const location = useLocation();
   const state = location.state;
+  
+  const { id } = useParams();  
 
   useEffect(() => {
-    // From json file
-    setProperties(data.properties);
-    setProperty(data.properties.find((prop) => prop.id === state.id));
-    console.log("Property:", property);
-  }, [state.id]);
+    console.log(data);
+    const foundProperty = data.properties.filter((e) => e.id === id)[0];
+
+    setProperty(foundProperty);
+
+    console.log(foundProperty);
+
+  }, [id]);
 
   const windowSize = useRef([window.innerWidth, window.innerHeight]);
   const slickSettings = {
@@ -37,7 +41,7 @@ const Property = () => {
   return (
     <div style={{ marginTop: "50px", padding: "25px" }}>
       <Slider {...slickSettings} className="slick-slider-custom">
-        {property &&
+        {/* {property &&
           property.pictures.map((pic, index) => (
             <div key={index}>
               <img
@@ -46,7 +50,7 @@ const Property = () => {
                 alt={`Slide ${index}`}
               />
             </div>
-          ))}
+          ))} */}
       </Slider>
 
       <div
