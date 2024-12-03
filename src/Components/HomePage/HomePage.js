@@ -39,17 +39,17 @@ const HomePage = () => {
 
       {/* Info Cards Section */}
       <section className="info-cards">
-        <div className="card">
+        <div className="home-card">
           <img src={houseIcon}  alt="Sold House Prices" />
           <h3>Sold house prices</h3>
           <p>Check what a home sold for plus photos, floorplans and local area insights.</p>
         </div>
-        <div className="card">
+        <div className="home-card">
           <img src={price_risng} alt="House Price Forecast" />
           <h3>Our 2025 house price forecast</h3>
           <p>How's the housing market looking now, and what could happen next year?</p>
         </div>
-        <div className="card">
+        <div className="home-card">
           <img src={energy_bill} alt="Energy Bill Tips" />
           <h3>10 mistakes adding £100s to your energy bill</h3>
           <p>Simple changes and tips that could save you money this winter.</p>
