@@ -6,10 +6,13 @@
     width: 45%;
     
   }
-  
-  .properties-card:hover {
-    transform: scale(1.02); /* Increase the scale for a slight zoom effect on hover */
+
+  body {
+    padding-top: 100px; /* Adjust based on the height of your navbar */
   }
+  
+  
+  
   @media (max-width: 768px){
     .properties-card{
       width: 90%;
