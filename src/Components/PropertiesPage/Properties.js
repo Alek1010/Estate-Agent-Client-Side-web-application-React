@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import data from "../Json-Properties/properties(1) (1).json";
-import "../PropertiesPage/Properties.css";
 import { useNavigate } from "react-router-dom";
 
 
@@ -19,7 +18,7 @@ const Properties = () => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100000000);
   const [searchDate, setSearchDate] = useState(null);
-  const [searchPostalCode, setSearchPostalCode] = useState("");
+ 
 
   useEffect(() => {
     setProperties(data.properties);
@@ -54,11 +53,7 @@ const Properties = () => {
     const matchesMinRooms = property.bedrooms >= minRooms;
     const matchesPrice =
       property.price >= minPrice && property.price <= maxPrice;
-    const matchesPostalCode = searchPostalCode
-      ? property.postalCode
-          .toLowerCase()
-          .includes(searchPostalCode.toLowerCase())
-      : true;
+  
     const matchesDate =
       !searchDate ||
       (property.added &&
@@ -74,126 +69,132 @@ const Properties = () => {
       matchesSearchTerm &&
       matchesMinRooms &&
       matchesPrice &&
-      matchesPostalCode &&
+      
       matchesDate
     );
   });
 
   return (
-    <Container fluid>
+    <Container fluid style={{ marginTop: '100px' }}>
      
-      <Row className="mb-4">
-        <Col>
-          <h1 className="text-center">Discover Your Dream Home with Moving Right</h1>
-          <p className="text-center text-danger">
-           Find your dream home on Moving Right using our beautifully made  app right from the comfort of your own home.
-          </p>
-        </Col>
-      </Row>
-      <Row className="mb-4">
-        <Col md={6}>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by location"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </Col>
-        <Col md={2}>
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Min Price"
-            value={minPrice}
-            onChange={(e) => setMinPrice(Number(e.target.value))}
-          />
-        </Col>
-        <Col md={2}>
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Max Price"
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(Number(e.target.value))}
-          />
-        </Col>
-        <Col md={2}>
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Min Rooms"
-            value={minRooms}
-            onChange={(e) => setMinRooms(Number(e.target.value))}
-          />
-        </Col>
-      </Row>
-      <Row className="mb-4">
-        <Col md={4}>
-          <DatePicker
-            selected={searchDate}
-            onChange={(date) => setSearchDate(date)}
-            className="form-control"
-            placeholderText="Search by date"
-          />
-        </Col>
-        <Col md={4}>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search by postal code"
-            value={searchPostalCode}
-            onChange={(e) => setSearchPostalCode(e.target.value)}
-          />
-        </Col>
-        <Col md={4}>
-          <Button
-            className="btn btn-success"
-            onClick={() => setProperties(data.properties)}
-          >
-            All
-          </Button>
-        </Col>
-      </Row>
-      <Row>
+<Row className="mb-4">
+  {/* Search by Location */}
+  <Col md={12} xs={24} className="d-flex align-items-center">
+    <label htmlFor="location" className="form-label me-2">Location</label>
+    <input
+      type="text"
+      id="location"
+      className="form-control"
+      placeholder="Search by location"
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+    />
+  </Col>
+
+</Row>
+
+<Row className="mb-4">
+  {/* Min Price */}
+  <Col md={3} xs={6} className="d-flex align-items-center">
+    <label htmlFor="minPrice" className="form-label">Min Price</label>
+    <input
+      type="number"
+      id="minPrice"
+      className="form-control"
+      placeholder="Min Price"
+      value={minPrice}
+      onChange={(e) => setMinPrice(Number(e.target.value))}
+    />
+  </Col>
+
+  {/* Max Price */}
+  <Col md={3} xs={6} className="d-flex align-items-center">
+    <label htmlFor="maxPrice" className="form-label">Max Price</label>
+    <input
+      type="number"
+      id="maxPrice"
+      className="form-control"
+      placeholder="Max Price"
+      value={maxPrice}
+      onChange={(e) => setMaxPrice(Number(e.target.value))}
+    />
+  </Col>
+
+  {/* Min Rooms */}
+  <Col md={3} xs={6} className="d-flex align-items-center">
+    <label htmlFor="minRooms" className="form-label">Min Rooms</label>
+    <input
+      type="number"
+      id="minRooms"
+      className="form-control"
+      placeholder="Min Rooms"
+      value={minRooms}
+      onChange={(e) => setMinRooms(Number(e.target.value))}
+    />
+  </Col>
+
+  {/* Date Picker */}
+  <Col md={3} xs={6} className="d-flex align-items-center">
+    <label htmlFor="searchDate" className="form-label">Search by Date</label>
+    <DatePicker
+      id="searchDate"
+      selected={searchDate}
+      onChange={(date) => setSearchDate(date)}
+      className="form-control"
+      placeholderText="Search by date"
+    />
+  </Col>
+</Row>
+
+
+ 
+<Row>
+        {/* Property Cards Section */}
         <Col md={8}>
-          <Row>
+          <Row className="g-3"> {/* g-3 gives space between cards */}
             {filteredProperties.map((property) => (
-              <Card key={property.id} className="col-md-4 m-2">
-                <Card.Img
-                  variant="top"
-                  
-                  src={`/images/Prop${property.id}/main.jpeg`}
-                  alt={`Image of ${property.location}`}
-                />
-                <Card.Body>
-                  <Card.Title>{property.location}</Card.Title>
-                  <Card.Text>
-                    Price: ${property.price}
-                    <br />
-                    Bedrooms: {property.bedrooms}
-                  </Card.Text>
-                  <Button
-                    variant="danger"
-                    onClick={() => addToFavorites(property)}
-                    disabled={favorites.some((fav) => fav.id === property.id)}
-                    className="me-2"
-                  >
-                    Add to Favorites
-                  </Button>
-                  <Button
-                    variant="primary"
-                    onClick={() => {
-                      handleClick(property.id);
-                    }}
-                  >
-                    More
-                  </Button>
-                </Card.Body>
-              </Card>
+              <Col xs={12} sm={6} md={6} lg={4} key={property.id}> 
+                {/* xs=12: 1 column on extra small screens, 
+                    sm=6: 2 columns on small screens, 
+                    md=6: 2 columns on medium screens,
+                    lg=4: 3 columns on large screens */}
+                <Card>
+                  <Card.Img
+                    variant="top"
+                    src={`/images/Prop${property.id}/main.jpeg`}
+                    alt={`Image of ${property.location}`}
+                  />
+                  <Card.Body>
+                    <Card.Title>{property.location}</Card.Title>
+                    <Card.Text>
+                      Price: ${property.price}
+                      <br />
+                      Bedrooms: {property.bedrooms}
+                    </Card.Text>
+                    <Button
+                      variant="danger"
+                      onClick={() => addToFavorites(property)}
+                      disabled={favorites.some((fav) => fav.id === property.id)}
+                      className="me-2"
+                    >
+                      Add to Favorites
+                    </Button>
+                    <Button
+                      variant="primary"
+                      onClick={() => {
+                        handleClick(property.id);
+                      }}
+                    >
+                      More
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
             ))}
           </Row>
         </Col>
+
+        {/* Favorites Section */}
         <Col md={4} className="bg-light p-3">
           <h4>Favorites</h4>
           {favorites.length === 0 ? (
@@ -219,6 +220,7 @@ const Properties = () => {
           )}
         </Col>
       </Row>
+
     </Container>
   );
 };
