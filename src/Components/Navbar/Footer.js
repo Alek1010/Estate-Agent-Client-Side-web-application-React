@@ -1,6 +1,8 @@
-// Importing necessary dependencies
+
 import React from 'react'; // Importing React to define the Footer component.
 import './Footer.css'; // Importing custom CSS styles for the Footer.
+
+
 const Footer = () => {
     return (
         // The main footer element with Bootstrap and custom classes for styling

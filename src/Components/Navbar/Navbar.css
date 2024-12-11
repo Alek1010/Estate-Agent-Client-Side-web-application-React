@@ -1,73 +1,64 @@
-/* NavBar.css */
 
-/* Importing Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
-/* General body styles */
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f7fa;  /* Light background for the page */
-}
-
-/* Styling for the brand logo text */
-.logo-text {
-  font-size: 24px;
-  font-weight: bold;
-  color: #ffffff;
-  font-family: 'Roboto', sans-serif; /* Changed font to Roboto for consistency */
-  letter-spacing: 1px;
-}
-
-/* Navbar styles */
 .custom-navbar {
-  background-color: #2a3d66; /* Dark blue background for the navbar */
-  font-family: 'Roboto', sans-serif;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  padding: 10px 0;
+  background-color: #00FFFF; 
+  padding: 15px 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Navbar links styling */
-.navbar-nav .nav-link {
-  color: #f1f1f1; /* Light text color for the links */
-  font-size: 18px;
-  font-weight: 500;
-  padding: 12px 18px;
-  transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover effect */
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff; /* Bright white text */
 }
 
-/* Hover effect for nav links */
-.navbar-nav .nav-link:hover {
-  color: #66d9e8; /* Light green color on hover */
-  border-bottom: 2px solid #66d9e8; /* Adds a border on hover */
-  padding-bottom: 5px; /* Adds some space under the text */
+.nav-link {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin: 0 12px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-/* Active link styles */
-.navbar-nav .nav-link.active {
-  color: #66d9e8 !important; /* Light green for active link */
-  border-bottom: 2px solid #66d9e8; /* Keep the border on active */
-  padding-bottom: 5px; /* Ensures consistency in spacing */
+.nav-link:hover {
+  color: white; 
+  border-bottom: 2px solid white;
 }
 
-/* Customizing Navbar Toggle (Hamburger Icon) for smaller screens */
-.navbar-toggler-icon {
-  background-color: #ffffff; /* White icon color */
-  border-radius: 5px; /* Round the corners of the hamburger icon */
+.nav-link.active {
+  color: white;
+  border-bottom: 2px solid white;
 }
 
-/* Navbar container to align items */
+.navbar-toggler {
+  background-color: #ffffff; /* White toggler button */
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background-color: white; /* Yellow hover for toggler */
+}
+
 .navbar-collapse {
-  justify-content: flex-end; /* Aligns the navigation items to the right */
+  transition: height 0.3s ease;
 }
 
-/* Mobile-friendly adjustments */
 @media (max-width: 992px) {
-  .custom-navbar {
-    background-color: #1e2a3b; /* Darker background when on mobile screens */
+  .navbar-collapse {
+      background-color: #7FFFD4; /* Same as navbar background */
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
-  
-  .navbar-nav .nav-link {
-    font-size: 16px;
-    padding: 10px 15px;
+
+  .nav-link {
+      margin: 15px 0;
+      text-align: center;
+      padding: 12px 20px;
+      background-color: rgba(255, 255, 255, 0.1); /* Subtle background for mobile links */
+      border-radius: 8px;
   }
+
 }
