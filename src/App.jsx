@@ -4,7 +4,7 @@ import "./App.css";
 import NavBar from "./Components/Navbar/Navbar";
 import HomePage from "./Components/HomePage/HomePage";
 import Footer from "./Components/Navbar/Footer";
-import Aboutus from "./Components/Aboutus/Aboutus";
+import AboutUs from "./Components/AboutUs/AboutUs";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Properties from "./Components/PropertiesPage/Properties";
@@ -19,7 +19,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/ContactUs" element={<ContactUs />} />
           <Route path="/properties" element={<Properties />} />
           <Route path="/properties/:id" element={<Property />} />

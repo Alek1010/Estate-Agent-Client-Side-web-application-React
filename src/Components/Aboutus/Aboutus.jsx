@@ -1,10 +1,10 @@
 // Import necessary libraries and components
 import React from "react"; // React library for building components
 import { Row, Col, Card } from "react-bootstrap"; // Bootstrap components for layout and styling
-import "./Aboutus.css"; // Custom CSS file for additional styling
+import "./AboutUs.css"; // Custom CSS file for additional styling
 
-// Define the Aboutus functional component
-const Aboutus = () => {
+// Define the AboutUs functional component
+const AboutUs = () => {
     return (
         // Main container for the About Us page with top margin and padding
         <div className="container mt-5 pt-3">
@@ -135,5 +135,5 @@ const Aboutus = () => {
     );
 };
 
-// Export the Aboutus component so it can be imported and used in other parts of the app
-export default Aboutus;
+// Export the AboutUs component so it can be imported and used in other parts of the app
+export default AboutUs;
