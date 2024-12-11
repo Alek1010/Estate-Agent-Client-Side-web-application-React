@@ -10,7 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Properties from "./Components/PropertiesPage/Properties";
 import Property from "./Components/PropertiesPage/Property";
 
-import "@radix-ui/themes/styles.css";
+
 
 function App() {
   return (
