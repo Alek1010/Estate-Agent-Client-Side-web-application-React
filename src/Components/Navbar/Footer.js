@@ -1,7 +1,7 @@
 
 import React from 'react'; // Importing React to define the Footer component.
 import './Footer.css'; // Importing custom CSS styles for the Footer.
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Footer = () => {
     return (
