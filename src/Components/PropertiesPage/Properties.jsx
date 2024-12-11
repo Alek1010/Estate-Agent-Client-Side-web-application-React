@@ -4,11 +4,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css"; // Import calendar styles
 import data from "../Json-Properties/properties(1) (1).json";
 import { useNavigate } from "react-router-dom";
-
 
 const Properties = () => {
   const [properties, setProperties] = useState([]);
@@ -18,7 +17,7 @@ const Properties = () => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(100000000);
   const [searchDate, setSearchDate] = useState(null);
- 
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false); // New state to manage calendar visibility
 
   useEffect(() => {
     setProperties(data.properties);
@@ -27,6 +26,14 @@ const Properties = () => {
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavorites);
   }, []);
+
+  const resetFilters = () => {
+    setSearchTerm("");
+    setMinRooms(0);
+    setMinPrice(0);
+    setMaxPrice(100000000);
+    setSearchDate(null);
+  };
 
   const addToFavorites = (property) => {
     if (favorites.some((fav) => fav.id === property.id)) return;
@@ -53,115 +60,124 @@ const Properties = () => {
     const matchesMinRooms = property.bedrooms >= minRooms;
     const matchesPrice =
       property.price >= minPrice && property.price <= maxPrice;
-  
+
     const matchesDate =
       !searchDate ||
       (property.added &&
-        new Date(
-          property.added.year,
-          new Date().toLocaleString("default", { month: "long" }).indexOf(
-            property.added.month
-          ),
-          property.added.day
-        ).getTime() === searchDate.getTime());
+        new Date(property.added.year, property.added.month - 1, property.added.day).toDateString() ===
+          searchDate.toDateString());
 
-    return (
-      matchesSearchTerm &&
-      matchesMinRooms &&
-      matchesPrice &&
-      
-      matchesDate
-    );
+    return matchesSearchTerm && matchesMinRooms && matchesPrice && matchesDate;
   });
 
   return (
-    <Container fluid style={{ marginTop: '100px' }}>
-     
-<Row className="mb-4">
-  {/* Search by Location */}
-  <Col md={12} xs={24} className="d-flex align-items-center">
-    <label htmlFor="location" className="form-label me-2">Location</label>
-    <input
-      type="text"
-      id="location"
-      className="form-control"
-      placeholder="Search by location"
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-    />
-  </Col>
+    <Container fluid style={{ marginTop: "100px" }}>
+      <Row className="mb-4">
+        {/* Search by Location */}
+        <Col md={12} xs={24} className="d-flex align-items-center">
+          <label htmlFor="location" className="form-label me-2">
+            Location
+          </label>
+          <input
+            type="text"
+            id="location"
+            className="form-control"
+            placeholder="Search by location"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </Col>
+      </Row>
 
-</Row>
+      <Row className="mb-4">
+        {/* Min Price */}
+        <Col md={3} xs={6} className="d-flex align-items-center">
+          <label htmlFor="minPrice" className="form-label">
+            Min Price
+          </label>
+          <input
+            type="number"
+            id="minPrice"
+            className="form-control"
+            placeholder="Min Price"
+            value={minPrice}
+            onChange={(e) => setMinPrice(Number(e.target.value))}
+          />
+        </Col>
 
-<Row className="mb-4">
-  {/* Min Price */}
-  <Col md={3} xs={6} className="d-flex align-items-center">
-    <label htmlFor="minPrice" className="form-label">Min Price</label>
-    <input
-      type="number"
-      id="minPrice"
-      className="form-control"
-      placeholder="Min Price"
-      value={minPrice}
-      onChange={(e) => setMinPrice(Number(e.target.value))}
-    />
-  </Col>
+        {/* Max Price */}
+        <Col md={3} xs={6} className="d-flex align-items-center">
+          <label htmlFor="maxPrice" className="form-label">
+            Max Price
+          </label>
+          <input
+            type="number"
+            id="maxPrice"
+            className="form-control"
+            placeholder="Max Price"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(Number(e.target.value))}
+          />
+        </Col>
 
-  {/* Max Price */}
-  <Col md={3} xs={6} className="d-flex align-items-center">
-    <label htmlFor="maxPrice" className="form-label">Max Price</label>
-    <input
-      type="number"
-      id="maxPrice"
-      className="form-control"
-      placeholder="Max Price"
-      value={maxPrice}
-      onChange={(e) => setMaxPrice(Number(e.target.value))}
-    />
-  </Col>
+        {/* Min Rooms */}
+        <Col md={3} xs={6} className="d-flex align-items-center">
+          <label htmlFor="minRooms" className="form-label">
+            Min Rooms
+          </label>
+          <input
+            type="number"
+            id="minRooms"
+            className="form-control"
+            placeholder="Min Rooms"
+            value={minRooms}
+            onChange={(e) => setMinRooms(Number(e.target.value))}
+          />
+        </Col>
 
-  {/* Min Rooms */}
-  <Col md={3} xs={6} className="d-flex align-items-center">
-    <label htmlFor="minRooms" className="form-label">Min Rooms</label>
-    <input
-      type="number"
-      id="minRooms"
-      className="form-control"
-      placeholder="Min Rooms"
-      value={minRooms}
-      onChange={(e) => setMinRooms(Number(e.target.value))}
-    />
-  </Col>
+        {/* Expandable Calendar */}
+        <Col md={3} xs={12} className="d-flex flex-column align-items-start">
+          <label htmlFor="searchDate" className="form-label">
+            Search by Date
+          </label>
+          <Button
+            variant="outline-primary"
+            onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+            className="mb-2"
+          >
+            {isCalendarOpen ? "Hide Calendar" : "Show Calendar"}
+          </Button>
+          {isCalendarOpen && (
+            <Calendar
+              onChange={setSearchDate}
+              value={searchDate}
+              className="w-100"
+            />
+          )}
+        </Col>
+      </Row>
 
-  {/* Date Picker */}
-  <Col md={3} xs={6} className="d-flex align-items-center">
-    <label htmlFor="searchDate" className="form-label">Search by Date</label>
-    {/* <DatePicker */}
-      id="searchDate"
-      selected={searchDate}
-      onChange={(date) => setSearchDate(date)}
-      className="form-control"
-      placeholderText="Search by date"
-    {/* /> */}
-  </Col>
-</Row>
+      {/* Clear Filters Button */}
+      <Row className="mb-4">
+        <Col md={12} className="text-center">
+          <Button variant="secondary" onClick={resetFilters}>
+            Clear Filters
+          </Button>
+        </Col>
+      </Row>
 
+      
 
- 
-<Row>
+      <Row>
         {/* Property Cards Section */}
         <Col md={8}>
-          <Row className="g-3"> {/* g-3 gives space between cards */}
+          <Row className="g-3">
             {filteredProperties.map((property) => (
-              <Col xs={12} sm={6} md={6} lg={4} key={property.id}> 
-                {/* xs=12: 1 column on extra small screens, 
-                    sm=6: 2 columns on small screens, 
-                    md=6: 2 columns on medium screens,
-                    lg=4: 3 columns on large screens */}
+              <Col xs={12} sm={6} md={6} lg={4} key={property.id}>
                 <Card>
                   <Card.Img
                     variant="top"
-                    src={`/images/Prop${property.id}/main.jpeg`}
+                    src="/images/prop1/main.jpeg"
                     alt={`Image of ${property.location}`}
                   />
                   <Card.Body>
@@ -220,7 +236,6 @@ const Properties = () => {
           )}
         </Col>
       </Row>
-
     </Container>
   );
 };
@@ -229,10 +244,3 @@ export default Properties;
 
 
 
-
-
-
-
-
-
- 
