@@ -6,6 +6,8 @@ import houseIcon from '../images/white-home-svgrepo-com.svg';
 import price_risng from '../images/house-prices-rising.svg';
 import energy_bill from '../images/electricity-bill-svgrepo-com.svg';
 
+import { Button as RadixButton } from '@radix-ui/themes' 
+
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");

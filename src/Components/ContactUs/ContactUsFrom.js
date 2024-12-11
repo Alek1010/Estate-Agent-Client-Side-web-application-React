@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
 import * as emailjs from "emailjs-com";
-import "bootstrap/dist/css/bootstrap.min.css";
-import DatePicker from "react-widgets/DatePicker";
-import "react-widgets/styles.css";
+// import DatePicker from "react-widgets/DatePicker";
+// import "react-widgets/styles.css";
 import "./ContactUs.css";
 
 const ContactForm = () => {
@@ -87,7 +86,7 @@ const ContactForm = () => {
         </div>
         <div className="form-group">
           <label htmlFor="date">Preferred Contact Date</label>
-          <DatePicker placeholder="Select a date" />
+          {/* <DatePicker placeholder="Select a date" /> */}
         </div>
         <button type="submit" className="btn-submit">
           Send Message

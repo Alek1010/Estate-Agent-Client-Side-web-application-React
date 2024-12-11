@@ -1,8 +1,6 @@
 // Importing necessary dependencies
 import React from 'react'; // Importing React to define the Footer component.
 import './Footer.css'; // Importing custom CSS styles for the Footer.
-import '@fortawesome/fontawesome-free/css/all.min.css'; // Importing Font Awesome CSS for social media icons.
-
 const Footer = () => {
     return (
         // The main footer element with Bootstrap and custom classes for styling

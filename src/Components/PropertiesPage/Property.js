@@ -5,17 +5,14 @@ import Tabs from "react-bootstrap/Tabs";
 
 import data from "../Json-Properties/properties(1) (1).json";
 import "./Property.css";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
 const Property = () => {
   const [property, setProperty] = useState(null); // Initialize as null
 
-  const location = useLocation();
-  const state = location.state;
+
   
   const { id } = useParams();  
 
@@ -40,7 +37,7 @@ const Property = () => {
 
   return (
     <div style={{ marginTop: "50px", padding: "25px" }}>
-      <Slider {...slickSettings} className="slick-slider-custom">
+      {/* <Slider {...slickSettings} className="slick-slider-custom"> */}
         {/* {property &&
           property.pictures.map((pic, index) => (
             <div key={index}>
@@ -51,7 +48,7 @@ const Property = () => {
               />
             </div>
           ))} */}
-      </Slider>
+      {/* </Slider> */}
 
       <div
         style={

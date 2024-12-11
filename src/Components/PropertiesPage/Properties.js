@@ -4,8 +4,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 import data from "../Json-Properties/properties(1) (1).json";
 import { useNavigate } from "react-router-dom";
 
@@ -136,13 +136,13 @@ const Properties = () => {
   {/* Date Picker */}
   <Col md={3} xs={6} className="d-flex align-items-center">
     <label htmlFor="searchDate" className="form-label">Search by Date</label>
-    <DatePicker
+    {/* <DatePicker */}
       id="searchDate"
       selected={searchDate}
       onChange={(date) => setSearchDate(date)}
       className="form-control"
       placeholderText="Search by date"
-    />
+    {/* /> */}
   </Col>
 </Row>
 
