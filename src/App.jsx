@@ -9,13 +9,13 @@ import ContactUs from "./Components/ContactUs/ContactUs";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Properties from "./Components/PropertiesPage/Properties";
 import Property from "./Components/PropertiesPage/Property";
-import { FavoriteProvider } from "./Components/PropertiesPage/FavoriteContext";
+
 import "@radix-ui/themes/styles.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <FavoriteProvider>
+      
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -25,7 +25,7 @@ function App() {
           <Route path="/properties/:id" element={<Property />} />
         </Routes>
         <Footer />
-      </FavoriteProvider>
+      
     </BrowserRouter>
   );
 }
