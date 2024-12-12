@@ -168,6 +168,8 @@ const Properties = () => {
 
       
 
+      
+
       <Row>
         {/* Property Cards Section */}
         <Col md={8}>

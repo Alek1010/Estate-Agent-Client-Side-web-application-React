@@ -42,7 +42,7 @@ const Property = () => {
         transition={false}
         className="mb-3"
         style={{
-          maxWidth: isLargeScreen ? "50%" : "90%",
+          maxWidth: isLargeScreen ? "60%" : "100%",
           margin: "auto",
           marginTop: "20px",
           backgroundColor: "white",
@@ -58,6 +58,8 @@ const Property = () => {
           eventKey="desc"
           title="Description"
           style={{
+            maxWidth: isLargeScreen ? "60%":"90%",
+            margin:"auto",
             padding: "20px",
             border: "1px solid #000",
             borderRadius: "10px",
