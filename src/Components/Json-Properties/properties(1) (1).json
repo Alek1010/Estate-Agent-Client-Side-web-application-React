@@ -14,7 +14,9 @@
                 "month":"October",
                 "day":12,
                 "year":2022
-            }
+            },
+            "IMG":"images/prop1/main.jpeg",
+            "floor_Plan":"images/prop1/prop1_FloorPlan.png"
         },
 		{
             "id":"2",
@@ -30,7 +32,9 @@
                 "month":"September",
                 "day":14,
                 "year":2022
-            }
+            },
+            "IMG":"images/prop2/main.jpeg",
+            "floor_Plan":"images/prop2/prop2FloorPlan.jpeg"
         },
 	 {
             "id":"3",
@@ -46,7 +50,9 @@
                 "month":"October",
                 "day":20,
                 "year":2024
-            }
+            },
+            "IMG":"images/prop3/main.jpeg",
+            "floor_Plan":"images/prop3/prop3FloorPlan.jpeg"
         },
 	 {
             "id":"4",
@@ -62,7 +68,9 @@
                 "month":"january",
                 "day":12,
                 "year":2021
-            }
+            },
+            "IMG":"images/prop4/main.jpeg",
+            "floor_Plan":"images/prop4/prop4FloorPlan.png"
         },
 	 {
             "id":"5",
@@ -78,7 +86,9 @@
                 "month":"May",
                 "day":24,
                 "year":2024
-            }
+            },
+            "IMG":"images/prop5/main.jpg",
+            "floor_Plan":"images/prop5/prop5FloorPlan.png"
         },
 	 {
             "id":"6",
@@ -94,7 +104,9 @@
                 "month":"April",
                 "day":10,
                 "year":2019
-            }
+            },
+            "IMG":"images/prop6/main.jpeg",
+            "floor_Plan":"images/prop6/prop6FloorPlan.png"
         },
 	 {
             "id":"7",
@@ -110,6 +122,8 @@
                 "month":"October",
                 "day":12,
                 "year":2022
-            }
+            },
+            "IMG":"images/prop7/main.jpeg",
+            "floor_Plan":"images/prop7/prop7FloorPlan.jpeg"
         }
 ]}

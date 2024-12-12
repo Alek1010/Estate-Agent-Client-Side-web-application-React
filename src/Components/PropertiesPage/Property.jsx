@@ -1,212 +1,137 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import Button from "react-bootstrap/Button";
 
 import data from "../Json-Properties/properties(1) (1).json";
 import "./Property.css";
-// import Slider from "react-slick";
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 
 const Property = () => {
-  const [property, setProperty] = useState(null); // Initialize as null
-
-
-  
-  const { id } = useParams();  
+  const { id } = useParams(); // Get the property ID from the URL
+  const [property, setProperty] = useState(null); // State for the property details
+  const windowSize = useRef([window.innerWidth, window.innerHeight]); // Track the window size
 
   useEffect(() => {
-    console.log(data);
-    const foundProperty = data.properties.filter((e) => e.id === id)[0];
-
-    setProperty(foundProperty);
-
-    console.log(foundProperty);
-
+    const foundProperty = data.properties.find((e) => e.id === id); // Find the property by ID
+    setProperty(foundProperty || null); // Set the property or null if not found
   }, [id]);
 
-  const windowSize = useRef([window.innerWidth, window.innerHeight]);
-  const slickSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  // Handle cases where the property isn't loaded yet
+  if (!property) {
+    return <div>Loading property details...</div>;
+  }
+
+  const isLargeScreen = windowSize.current[0] > 1000; // Determine if the screen is large
 
   return (
     <div style={{ marginTop: "50px", padding: "25px" }}>
-      {/* <Slider {...slickSettings} className="slick-slider-custom"> */}
-        {/* {property &&
-          property.pictures.map((pic, index) => (
-            <div key={index}>
-              <img
-                className="d-block w-100 img-fluid"
-                src={pic}
-                alt={`Slide ${index}`}
-              />
-            </div>
-          ))} */}
-      {/* </Slider> */}
-
+      {/* Main Container */}
       <div
-        style={
-          windowSize.current[0] > 1000
-            ? { maxWidth: "50%", margin: "auto", marginTop: "50px" }
-            : { margin: "auto" }
-        }
+        style={{
+          maxWidth: isLargeScreen ? "50%" : "90%",
+          margin: "auto",
+          marginTop: "50px",
+        }}
       >
-        <h1>{property ? property.location : ""}</h1>
-        {/* {property && `${property.added.month} ${property.added.day}, ${property.added.year}`} */}
+        <h1 style={{ textAlign: "center" }}>{property.location}</h1>
       </div>
 
       <Tabs
         defaultActiveKey="desc"
         transition={false}
         className="mb-3"
-        style={
-          windowSize.current[0] > 1000
-            ? {
-                maxWidth: "50%",
-                margin: "auto",
-                marginTop: "20px",
-                backgroundColor: "white",
-                borderRadius: "8px",
-              }
-            : {
-                margin: "auto",
-                marginTop: "20px",
-                backgroundColor: "white",
-                borderRadius: "10px",
-              }
-        }
+        style={{
+          maxWidth: isLargeScreen ? "50%" : "90%",
+          margin: "auto",
+          marginTop: "20px",
+          backgroundColor: "white",
+          borderRadius: "10px",
+          padding: "15px",
+        }}
       >
+
+
+        {/* Description Tab */}
         <Tab
           eventKey="desc"
           title="Description"
-          style={
-            windowSize.current[0] > 1000
-              ? {
-                  maxWidth: "50%",
-                  margin: "auto",
-                  marginTop: "20px",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #000",
-                  borderRadius: "10px",
-                  padding: "20px",
-                  color: "#000",
-                }
-              : {
-                  margin: "auto",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #000",
-                  borderRadius: "10px",
-                  padding: "20px",
-                  color: "#000",
-                }
-          }
+          style={{
+            padding: "20px",
+            border: "1px solid #000",
+            borderRadius: "10px",
+            backgroundColor: "#ffffff",
+          }}
         >
-          <div>
-            {property && (
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">Type: {property.type}</li>
-                <li className="list-group-item">
-                  Bedrooms: {property.bedrooms}
-                </li>
-                <li className="list-group-item">Tenure: {property.tenure}</li>
-                <li className="list-group-item">Price: ${property.price}</li>
-                <li className="list-group-item">
-                  Date Added:{" "}
-                  {property.added
-                    ? `${property.added.month} ${property.added.day}, ${property.added.year}`
-                    : "N/A"}
-                </li>
-                <li className="list-group-item">
-                  Postal Code: {property.postalCode || "N/A"}
-                </li>
-              </ul>
-            )}
-          </div>
-          <div style={{ padding: "20px" }}>
-            {property ? property.description : ""}
-          </div>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">Type: {property.type}</li>
+            <li className="list-group-item">Bedrooms: {property.bedrooms}</li>
+            <li className="list-group-item">Tenure: {property.tenure}</li>
+            <li className="list-group-item">Price: ${property.price}</li>
+            <li className="list-group-item">
+              Date Added:{" "}
+              {property.added
+                ? `${property.added.month} ${property.added.day}, ${property.added.year}`
+                : "N/A"}
+            </li>
+            <li className="list-group-item">
+              Postal Code: {property.postalCode || "N/A"}
+            </li>
+          </ul>
+          <div style={{ padding: "20px" }}>{property.description}</div>
           <Link to="/contactus">
             <Button variant="primary ms-3">Contact Us</Button>
           </Link>
         </Tab>
+
+        {/* Floor Plan Tab */}
         <Tab
           eventKey="fp"
-          title="Floor plan"
-          style={
-            windowSize.current[0] > 1000
-              ? {
-                  maxWidth: "50%",
-                  margin: "auto",
-                  marginTop: "20px",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #000",
-                  borderRadius: "10px",
-                  padding: "20px",
-                  color: "#000",
-                }
-              : {
-                  margin: "auto",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #000",
-                  borderRadius: "10px",
-                  padding: "20px",
-                  color: "#000",
-                }
-          }
+          title="Floor Plan"
+          style={{
+            padding: "20px",
+            border: "1px solid #000",
+            borderRadius: "10px",
+            backgroundColor: "#ffffff",
+          }}
         >
-          Floor plan
-          <div>
+          {property.floor_Plan ? (
             <img
-              src="/src/assets/floor_plan.png"
+              src={`./${property.floor_Plan}`}
+              alt="Floor Plan"
               style={{ maxWidth: "100%", height: "auto" }}
             />
-          </div>
+          ) : (
+            <p>No floor plan available.</p>
+          )}
         </Tab>
+
+        {/* Map Tab */}
         <Tab
           eventKey="map"
           title="Map"
-          style={
-            windowSize.current[0] > 1000
-              ? {
-                  maxWidth: "50%",
-                  margin: "auto",
-                  marginTop: "20px",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #000",
-                  borderRadius: "10px",
-                  padding: "20px",
-                  color: "#000",
-                }
-              : {
-                  margin: "auto",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #000",
-                  borderRadius: "10px",
-                  padding: "20px",
-                  color: "#000",
-                }
-          }
+          style={{
+            padding: "20px",
+            border: "1px solid #000",
+            borderRadius: "10px",
+            backgroundColor: "#ffffff",
+          }}
         >
-          Map
-          <div className="embed-responsive embed-responsive-16by9">
+          {property.map ? (
             <iframe
-              className="embed-responsive-item"
-              src={property ? property.map : ""}
+              src={property.map}
               title="Property Map"
-              allowFullScreen=""
+              style={{
+                width: "100%",
+                height: isLargeScreen ? "500px" : "300px",
+                border: "none",
+              }}
+              allowFullScreen
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              // "no-referrer-when-downgrade", which means that the referrer 
-              // information is not sent in cross-origin requests unless the protocol 
-              // security level stays the same (e.g., from HTTPS to HTTPS).
             ></iframe>
-          </div>
+          ) : (
+            <p>No map available.</p>
+          )}
         </Tab>
       </Tabs>
     </div>
@@ -214,3 +139,6 @@ const Property = () => {
 };
 
 export default Property;
+
+
+

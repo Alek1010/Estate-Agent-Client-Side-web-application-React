@@ -177,8 +177,9 @@ const Properties = () => {
                 <Card>
                   <Card.Img
                     variant="top"
-                    src="/images/prop1/main.jpeg"
+                    src={`./${property.IMG}`}
                     alt={`Image of ${property.location}`}
+                    style={{ width: "100%", height: "200px", objectFit: "cover" }}
                   />
                   <Card.Body>
                     <Card.Title>{property.location}</Card.Title>
