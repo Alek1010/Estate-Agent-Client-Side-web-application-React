@@ -18,7 +18,7 @@
             "IMG":"../images/Prop1/main.jpeg",
             "floor_Plan":"../images/Prop1/prop1_FloorPlan.png",
             "images": [
-                "../images/Prop1/Prop1Kitchen.jpeg",
+                "../images/Prop1/view1.jpeg",
                 "../images/Prop1/view2.jpeg",
                 "../images/Prop1/view3.jpeg"
             ]
@@ -41,7 +41,7 @@
             "IMG":"../images/Prop2/main.jpeg",
             "floor_Plan":"../images/Prop2/Prop2_FloorPlan.jpeg",
             "images": [
-                "../images/Prop2/Prop2_Kitchen.jpeg",
+                "../images/Prop2/view1.jpeg",
                 "../images/Prop2/view2.jpeg",
                 "../images/Prop2/view3.jpeg"
             ]
@@ -64,7 +64,7 @@
             "IMG":"../images/Prop3/main.jpeg",
             "floor_Plan":"../images/Prop3/Prop3FloorPlan.jpeg",
             "images": [
-                "../images/Prop3/Prop3Kitchen.jpeg",
+                "../images/Prop3/view1.jpeg",
                 "../images/Prop3/view2.jpeg",
                 "../images/Prop3/view3.jpeg"
             ]
@@ -87,7 +87,7 @@
             "IMG":"../images/Prop4/main.jpeg",
             "floor_Plan":"../images/Prop4/prop4FloorPlan.png",
             "images": [
-                "../images/Prop4/Prop4KitchenImage.jpeg",
+                "../images/Prop4/view1.jpeg",
                 "../images/Prop4/view2.jpeg",
                 "../images/Prop4/view3.jpeg"
             ]
@@ -110,7 +110,7 @@
             "IMG":"../images/Prop5/main.jpg",
             "floor_Plan":"../images/Prop5/prop5FloorPlan.png",
             "images": [
-                "../images/Prop5/Prop5KitchenImage.jpg",
+                "../images/Prop5/view1.jpg",
                 "../images/Prop5/view2.jpeg",
                 "../images/Prop5/view3.jpeg"
             ]
@@ -133,7 +133,7 @@
             "IMG":"../images/Prop6/main.jpg",
             "floor_Plan":"../images/Prop6/Prop6FloorPlan.png",
             "images": [
-                "../images/Prop6/Prop6KitchenImage.jpg",
+                "../images/Prop6/view1.jpg",
                 "../images/Prop6/view2.jpeg",
                 "../images/Prop6/view3.jpeg"
             ]
@@ -156,7 +156,7 @@
             "IMG":"../images/Prop7/main.jpeg",
             "floor_Plan":"../images/Prop7/Prop7FloorPlan.jpeg",
             "images": [
-                "../images/Prop7/Prop7KitchenImage.jpg",
+                "../images/Prop7/view1.jpg",
                 "../images/Prop7/view2.jpeg",
                 "../images/Prop7/view3.jpeg"
             ]

@@ -11,10 +11,14 @@ const Property = () => {
   const { id } = useParams(); // Get the property ID from the URL
   const [property, setProperty] = useState(null); // State for the property details
   const windowSize = useRef([window.innerWidth, window.innerHeight]); // Track the window size
+  const [mainImage, setMainImage] = useState("");
 
   useEffect(() => {
     const foundProperty = data.properties.find((e) => e.id === id); // Find the property by ID
     setProperty(foundProperty || null); // Set the property or null if not found
+    if(foundProperty){
+      setMainImage(foundProperty.IMG)
+    }
   }, [id]);
 
   // Handle cases where the property isn't loaded yet
@@ -48,7 +52,7 @@ const Property = () => {
       >
         {property.IMG ? (
           <img
-            src={`./${property.IMG}`}
+            src={`./${mainImage}`}
             alt="Main Property"
             style={{
               width: "100%",
@@ -86,7 +90,7 @@ const Property = () => {
                 cursor: "pointer",
                 border: "1px solid #ccc",
               }}
-              onClick={() => window.open(img, "_blank")}
+              onClick={() =>setMainImage(img)}
             />
           ))
         ) : (
