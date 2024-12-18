@@ -11,7 +11,7 @@
   
   /* Hero Section */
   .hero {
-    background-image: url('/src/Components/images/background.jpeg');
+    background-image: url('/src/Components/Images/background.jpeg');
     background-size: cover;
     background-position: center;
     height: 100vh;

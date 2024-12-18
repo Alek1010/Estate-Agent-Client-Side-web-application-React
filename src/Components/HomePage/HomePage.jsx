@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './HomePage.css';
-import houseIcon from '../images/white-home-svgrepo-com.svg';
-import price_risng from '../images/house-prices-rising.svg';
-import energy_bill from '../images/electricity-bill-svgrepo-com.svg';
+import houseIcon from '../Images/white-home-svgrepo-com.svg';
+import price_risng from '../Images/house-prices-rising.svg';
+import energy_bill from '../Images/electricity-bill-svgrepo-com.svg';
 
  
 

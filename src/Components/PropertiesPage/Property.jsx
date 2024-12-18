@@ -37,6 +37,64 @@ const Property = () => {
         <h1 style={{ textAlign: "center" }}>{property.location}</h1>
       </div>
 
+      {/* Main Image */}
+      <div
+        style={{
+          maxWidth: isLargeScreen ? "60%" : "90%",
+          margin: "auto",
+          marginTop: "20px",
+          textAlign: "center",
+        }}
+      >
+        {property.IMG ? (
+          <img
+            src={`./${property.IMG}`}
+            alt="Main Property"
+            style={{
+              width: "100%",
+              maxHeight: "400px",
+              objectFit: "cover",
+              borderRadius: "10px",
+            }}
+          />
+        ) : (
+          <p>No main image available.</p>
+        )}
+      </div>
+
+      {/* Smaller Images */}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          marginTop: "20px",
+          gap: "10px",
+        }}
+      >
+        {property.images && property.images.length > 0 ? (
+          property.images.map((img, index) => (
+            <img
+              key={index}
+              src={img}
+              alt={`Property View ${index + 1}`}
+              style={{
+                width: "100px",
+                height: "100px",
+                objectFit: "cover",
+                borderRadius: "5px",
+                cursor: "pointer",
+                border: "1px solid #ccc",
+              }}
+              onClick={() => window.open(img, "_blank")}
+            />
+          ))
+        ) : (
+          <p>No additional images available.</p>
+        )}
+      </div>
+
+      {/* Tabs for Description, Floor Plan, and Map */}
       <Tabs
         defaultActiveKey="desc"
         transition={false}
@@ -50,16 +108,13 @@ const Property = () => {
           padding: "15px",
         }}
       >
-
-
-
         {/* Description Tab */}
         <Tab
           eventKey="desc"
           title="Description"
           style={{
-            maxWidth: isLargeScreen ? "60%":"90%",
-            margin:"auto",
+            maxWidth: isLargeScreen ? "60%" : "90%",
+            margin: "auto",
             padding: "20px",
             border: "1px solid #000",
             borderRadius: "10px",
@@ -92,6 +147,8 @@ const Property = () => {
           eventKey="fp"
           title="Floor Plan"
           style={{
+            maxWidth: isLargeScreen ? "60%" : "90%",
+            margin: "auto",
             padding: "20px",
             border: "1px solid #000",
             borderRadius: "10px",
@@ -100,7 +157,7 @@ const Property = () => {
         >
           {property.floor_Plan ? (
             <img
-              src={`./${property.floor_Plan}`}
+              src={property.floor_Plan}
               alt="Floor Plan"
               style={{ maxWidth: "100%", height: "auto" }}
             />
@@ -114,6 +171,8 @@ const Property = () => {
           eventKey="map"
           title="Map"
           style={{
+            maxWidth: isLargeScreen ? "60%" : "90%",
+            margin: "auto",
             padding: "20px",
             border: "1px solid #000",
             borderRadius: "10px",
@@ -142,6 +201,3 @@ const Property = () => {
 };
 
 export default Property;
-
-
-
