@@ -13,6 +13,10 @@ const Property = () => {
   const windowSize = useRef([window.innerWidth, window.innerHeight]); // Track the window size
   const [mainImage, setMainImage] = useState("");
 
+
+ 
+  
+  
   useEffect(() => {
     const foundProperty = data.properties.find((e) => e.id === id); // Find the property by ID
     setProperty(foundProperty || null); // Set the property or null if not found
@@ -27,6 +31,8 @@ const Property = () => {
   }
 
   const isLargeScreen = windowSize.current[0] > 1000; // Determine if the screen is large
+
+  const googleMapsURL = `https://maps.google.com/maps?q=${property.location}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <div style={{ marginTop: "50px", padding: "25px" }}>
@@ -194,7 +200,7 @@ const Property = () => {
             }}
             allowFullScreen
             loading="lazy"
-            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps tracker sport</a></iframe>
+            src={googleMapsURL}><a href="https://www.gps.ie/">gps tracker sport</a></iframe>
 
          
         </Tab>
@@ -204,3 +210,6 @@ const Property = () => {
 };
 
 export default Property;
+
+
+// "https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=property.location,&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
