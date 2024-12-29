@@ -19,6 +19,7 @@ body {
     color: #fff;
     padding: 4rem 1.5rem;
     margin-top: 100px;
+    border-radius: 10px;
   }
   
   .intro-section h1 {
@@ -80,6 +81,7 @@ body {
     background: #006d77;
     color: #fff;
     padding: 4rem 1.5rem;
+    border-radius: 10px;
   }
   
   .contact-section h2 {
