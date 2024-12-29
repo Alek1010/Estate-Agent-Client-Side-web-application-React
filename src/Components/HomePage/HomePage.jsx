@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './HomePage.css';
@@ -10,7 +10,7 @@ import energy_bill from '../Images/electricity-bill-svgrepo-com.svg';
 
 
 const HomePage = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  
   const navigate = useNavigate();
 
   const handleSearch = () => {
@@ -19,7 +19,7 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
+     
       <section className="hero">
         <div className="hero-content">
           <h1>Believe in finding it</h1>
@@ -28,8 +28,7 @@ const HomePage = () => {
             <input
               type="text"
               placeholder="e.g. Bath, NW3, or Leeds station"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              
             />
             <div className="search-buttons">
               <Button onClick={handleSearch}>For Sale</Button>
