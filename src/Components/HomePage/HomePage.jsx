@@ -14,7 +14,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    navigate(`/search?query=${searchQuery}`);
+    navigate(`/properties`);
   };
 
   return (

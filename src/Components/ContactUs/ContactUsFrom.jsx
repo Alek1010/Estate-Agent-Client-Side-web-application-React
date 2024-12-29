@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react";
 import * as emailjs from "emailjs-com";
-// import DatePicker from "react-widgets/DatePicker";
-// import "react-widgets/styles.css";
 import "./ContactUs.css";
 
 const ContactForm = () => {

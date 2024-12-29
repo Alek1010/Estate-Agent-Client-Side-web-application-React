@@ -1,7 +1,23 @@
-footer {
-    bottom: 0;
-  }
-  .footer {
+/* Ensure the body and html occupy full height */
+html, body {
+    height: 100%;
+    margin: 0; /* Remove default margin */
+}
+
+/* Main container that wraps your app content */
+#root, .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; /* Ensures full height layout */
+}
+
+/* Footer styles */
+.footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
+    text-align: center; /* Ensures text alignment */
+}
+
+.footer {
     background-color: #f8f9fa; /* Light grey background */
     color: #343a40; /* Dark grey text */
     font-size: 16px;

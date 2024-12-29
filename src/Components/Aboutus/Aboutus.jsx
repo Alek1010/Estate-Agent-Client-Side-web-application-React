@@ -77,7 +77,7 @@ const AboutUs = () => {
                             >
                                 Meet our team of property experts who are passionate about helping you find your dream
                                 home. Each one of our experts has a minimum of 10 years of experience as an estate agent,
-                                so you can rest assured you are in safe hands.
+                                so you can rest assured you are in safe hands. As you can rest assured that we can deliver on all of your requests.
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -96,6 +96,7 @@ const AboutUs = () => {
                             fontSize: "1.5rem",
                             fontWeight: "bold",
                             color: "#20247b",
+                            textAlign: "center"
                         }}
                     >
                         Our Mission
@@ -107,9 +108,12 @@ const AboutUs = () => {
                             fontSize: "1.3rem",
                             color: "#20247b",
                             lineHeight: "1.6",
+                            textAlign: "center"
                         }}
                     >
-                        Our goal is simple: to be the best. We always strive to excel in whatever we do.
+                        Our goal is simple: to be the best. We strive for excellence in everything we do, focusing on helping you find your dream home down to the finest detail. Whether you're searching for a cozy apartment, a spacious family house, or a luxury property, we are here to guide you every step of the way.
+
+                        At Moving Right, we pride ourselves on our personalized service, market expertise, and commitment to making the process of buying or renting a home seamless and enjoyable. Let us help you turn your vision of the perfect home into reality.
                     </p>
                 </Col>
             </Row>

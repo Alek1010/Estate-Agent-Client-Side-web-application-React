@@ -1,0 +1,110 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    color: #333;
+  }
+  
+  .services-page {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Intro Section */
+  .intro-section {
+    background: linear-gradient(135deg, #006d77, #83c5be);
+    color: #fff;
+    padding: 4rem 1.5rem;
+    margin-top: 100px;
+  }
+  
+  .intro-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .intro-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  /* Services Section */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+    background-color: #ffffff;
+  }
+  
+  .service {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+  }
+  
+  .service-icon img {
+    max-width: 100%;
+  }
+  
+  .service h3 {
+    font-size: 1.5rem;
+    color: #006d77;
+    margin-bottom: 0.5rem;
+  }
+  
+  .service p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  /* Contact Section */
+  .contact-section {
+    background: #006d77;
+    color: #fff;
+    padding: 4rem 1.5rem;
+  }
+  
+  .contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .contact-button {
+    background: #83c5be;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    background: #006d77;
+  }
+  
