@@ -9,7 +9,7 @@
 .logo-text {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #ffffff; /* Bright white text */
+  color: #ffffff;
 }
 
 .nav-link {
@@ -38,7 +38,7 @@
 }
 
 .navbar-toggler:hover {
-  background-color: white; /* Yellow hover for toggler */
+  background-color: white; 
 }
 
 .navbar-collapse {
@@ -47,7 +47,7 @@
 
 @media (max-width: 992px) {
   .navbar-collapse {
-      background-color: #7FFFD4; /* Same as navbar background */
+      background-color: #7FFFD4; 
       padding: 15px;
       border-radius: 5px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -57,7 +57,7 @@
       margin: 15px 0;
       text-align: center;
       padding: 12px 20px;
-      background-color: rgba(255, 255, 255, 0.1); /* Subtle background for mobile links */
+      background-color: rgba(255, 255, 255, 0.1); 
       border-radius: 8px;
   }
 
