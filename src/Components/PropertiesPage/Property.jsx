@@ -183,21 +183,20 @@ const Property = () => {
             backgroundColor: "#ffffff",
           }}
         >
-          {property.map ? (
-            <iframe
-              src={property.map}
-              title="Property Map"
-              style={{
-                width: "100%",
-                height: isLargeScreen ? "500px" : "300px",
-                border: "none",
-              }}
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
-          ) : (
-            <p>No map available.</p>
-          )}
+          
+          <iframe
+           
+            title="Property Map"
+            style={{
+              width: "100%",
+              height: isLargeScreen ? "500px" : "300px",
+              border: "none",
+            }}
+            allowFullScreen
+            loading="lazy"
+            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps tracker sport</a></iframe>
+
+         
         </Tab>
       </Tabs>
     </div>
