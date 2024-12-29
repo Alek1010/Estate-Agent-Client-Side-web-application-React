@@ -8,6 +8,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: "Arial", sans-serif;
   }
+
+  .container_contactUs{
+    margin-top: 100px;
+  }
   
   /* Header */
   .contact-header h2 {
@@ -76,16 +80,5 @@
     background-color: #0056b3;
   }
   
-  /* DatePicker Specific */
-  form .form-group .rw-widget-container {
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  
-  form .form-group .rw-widget-container:focus-within {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
+
   

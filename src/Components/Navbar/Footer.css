@@ -1,8 +1,5 @@
 /* Ensure the body and html occupy full height */
-html, body {
-    height: 100%;
-    margin: 0; /* Remove default margin */
-}
+
 
 /* Main container that wraps your app content */
 #root, .app-container {
