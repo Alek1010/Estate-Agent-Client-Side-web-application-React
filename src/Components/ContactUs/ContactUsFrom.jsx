@@ -1,51 +1,44 @@
-import React, { useRef, useState } from "react";
-import * as emailjs from "emailjs-com";
+import React, { useState } from "react";
 import "./ContactUs.css";
 
 const ContactForm = () => {
-  const form = useRef();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  });
+  }); // State to store form data
 
+  // Handle input changes and update the state
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
 
-    emailjs
-      .sendForm(
-        "service_sjgvyef",
-        "template_lhh57u6",
-        form.current,
-        "6vLY1F2AYL9BslJi8"
-      )
-      .then(
-        () => {
-          alert("Email sent successfully!");
-          setFormData({ name: "", email: "", message: "" }); // Reset form
-        },
-        () => {
-          alert("Email sending failed. Please try again.");
-        }
-      );
+    // Validate the form fields
+    if (formData.name && formData.email && formData.message) {
+      // Display success message as an alert
+      window.alert("Form submitted successfully!");
+      setFormData({ name: "", email: "", message: "" }); // Reset form fields
+    } else {
+      window.alert("Please fill in all fields correctly."); // Alert for validation error
+    }
   };
 
+  // Render the form
   return (
     <div className="contact-container">
+      {/* Header */}
       <div className="contact-header">
         <h2>Get in Touch</h2>
-        <p>
-          We'd love to hear from you! Fill out the form below to get in touch
-          with us.
-        </p>
+        <p>We'd love to hear from you! Fill out the form below to contact us.</p>
       </div>
-      <form ref={form} onSubmit={sendEmail} className="contact-form">
+
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="contact-form">
         <div className="form-group">
           <label htmlFor="name">Your Name</label>
           <input
@@ -81,10 +74,6 @@ const ContactForm = () => {
             rows="5"
             required
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="date">Preferred Contact Date</label>
-          {/* <DatePicker placeholder="Select a date" /> */}
         </div>
         <button type="submit" className="btn-submit">
           Send Message

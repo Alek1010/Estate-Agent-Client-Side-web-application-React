@@ -1,4 +1,4 @@
-// Import necessary libraries and components
+
 import React from "react"; // React library for building components
 import { Row, Col, Card } from "react-bootstrap"; // Bootstrap components for layout and styling
 import "./AboutUs.css"; // Custom CSS file for additional styling
